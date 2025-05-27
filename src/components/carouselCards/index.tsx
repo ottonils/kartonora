@@ -36,7 +36,15 @@ interface CarouselConfig {
 interface CarouselCardProps {
     cardData: CarouselCardData;
     styleProps: {
-        animate: any;
+        animate: {
+            x: string; // GEÄNDERT: x-Transformation als String für korrekte Zentrierung
+            y: string; // GEÄNDERT: y-Transformation als String für korrekte Zentrierung
+            scale: number;
+            opacity: number;
+            zIndex: number;
+            rotateY: number;
+            filter: string; // GEÄNDERT: Filter für Blur-Effekt
+        };
         onDragEndCard?: (draggedX: number) => void;
     };
     fontClassName: string;
