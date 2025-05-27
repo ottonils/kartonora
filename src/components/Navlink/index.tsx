@@ -20,7 +20,7 @@ const NavLink = ({ children, href = "#" }: NavLinkProps) => {
                 padding: '10px 15px', // Innenabstand für den Text
                 margin: '0 10px',     // Abstand zwischen den Links
                 textDecoration: 'none',
-                color: '#A3C1AD',     // Standard-Textfarbe
+                color: '#151515',     // Standard-Textfarbe
                 fontWeight: 500,
                 cursor: 'pointer',
                 overflow: 'hidden',

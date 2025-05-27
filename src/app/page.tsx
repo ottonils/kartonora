@@ -1,3 +1,4 @@
+import CollectionDrehrad from '@/components/carouselSchool';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { Playwrite_DK_Loopet } from 'next/font/google';
@@ -15,10 +16,10 @@ const Home = () => {
       <Navbar />
 
       {/* MAIN CONTENT AREA */}
-      <main className="flex-grow"> {/* Oder ein div, das den Content umgibt */}
+      <main className="flex justify-center items-center" > {/* Oder ein div, das den Content umgibt */}
         {/* FIRST SECTION */}
-        <section className="w-full flex"> 
-          {/* Dein weiterer Inhalt hier */} 
+        <section className="w-[60%] flex"> 
+          <CollectionDrehrad />
         </section>
       </main>
 
