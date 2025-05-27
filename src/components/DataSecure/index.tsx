@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
         <div className="w-full flex-grow flex flex-col items-center py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
 
             <h1 
-                className={`text-3xl sm:text-4xl md:text-[2.8rem] lg:text-[3rem] font-semibold ${playwriteDKLoopet.className} text-[#A3C1AD] mb-6 sm:mb-8 md:mb-10 border-b border-[#A3C1AD]/50 pb-3 sm:pb-4 text-center`}
+                className={`text-3xl sm:text-4xl md:text-[2.8rem] lg:text-[3rem] font-semibold ${playwriteDKLoopet.className} text-[#CA848A] mb-6 sm:mb-8 md:mb-10 border-b border-[#A3C1AD]/50 pb-3 sm:pb-4 text-center`}
             >
                 Datenschutzerklärung
             </h1>
@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
                 <section aria-labelledby="general-intro-heading">
                     <h2 
                         id="general-intro-heading"
-                        className={`${playwriteDKLoopet.className} text-[#A3C1AD] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
+                        className={`${playwriteDKLoopet.className} text-[#CA848A] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
                     >
                         1. Datenschutz auf einen Blick
                     </h2>
@@ -55,7 +55,7 @@ const PrivacyPolicy = () => {
                 <section aria-labelledby="controller-heading">
                     <h2 
                         id="controller-heading"
-                        className={`${playwriteDKLoopet.className} text-[#A3C1AD] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
+                        className={`${playwriteDKLoopet.className} text-[#CA848A] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
                     >
                         2. Verantwortliche Stelle
                     </h2>
@@ -70,7 +70,7 @@ const PrivacyPolicy = () => {
                     </address>
                     <p className="text-sm sm:text-base leading-relaxed">
                         Telefon: +49 173 9831363<br/>
-                        E-Mail: <a href="mailto:nora@schlossotto.de" className="text-[#A3C1AD] hover:text-[#8aa894] underline transition-colors duration-200">nora@schlossotto.de</a>
+                        E-Mail: <a href="mailto:nora@schlossotto.de" className="text-[#CA848A] hover:text-[#8aa894] underline transition-colors duration-200">nora@schlossotto.de</a>
                     </p>
                     <p className="text-sm sm:text-base leading-relaxed mt-2">
                         Die verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
@@ -80,7 +80,7 @@ const PrivacyPolicy = () => {
                 <section aria-labelledby="hosting-heading">
                     <h2 
                         id="hosting-heading"
-                        className={`${playwriteDKLoopet.className} text-[#A3C1AD] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
+                        className={`${playwriteDKLoopet.className} text-[#CA848A] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
                     >
                         3. Hosting und Content Delivery Networks (CDN)
                     </h2>
@@ -90,7 +90,7 @@ const PrivacyPolicy = () => {
                         Netlify ist ein Dienst zur Bereitstellung, Verteilung und Verwaltung von Webseiten und Webanwendungen.
                     </p>
                     <p className="text-sm sm:text-base leading-relaxed mb-3">
-                        Wenn Sie unsere Website besuchen, erfasst Netlify verschiedene Logfiles einschließlich Ihrer IP-Adressen. Netlify speichert diese Server-Logfiles nach eigenen Angaben für 30 Tage, um die Sicherheit und Funktionsfähigkeit der Dienste zu gewährleisten. Details hierzu finden Sie in der Datenschutzerklärung von Netlify: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-[#A3C1AD] hover:text-[#8aa894] underline transition-colors duration-200">https://www.netlify.com/privacy/</a> und Informationen zur DSGVO-Konformität: <a href="https://www.netlify.com/gdpr-ccpa/" target="_blank" rel="noopener noreferrer" className="text-[#A3C1AD] hover:text-[#8aa894] underline transition-colors duration-200">https://www.netlify.com/gdpr-ccpa/</a>.
+                        Wenn Sie unsere Website besuchen, erfasst Netlify verschiedene Logfiles einschließlich Ihrer IP-Adressen. Netlify speichert diese Server-Logfiles nach eigenen Angaben für 30 Tage, um die Sicherheit und Funktionsfähigkeit der Dienste zu gewährleisten. Details hierzu finden Sie in der Datenschutzerklärung von Netlify: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-[#CA848A] hover:text-[#8aa894] underline transition-colors duration-200">https://www.netlify.com/privacy/</a> und Informationen zur DSGVO-Konformität: <a href="https://www.netlify.com/gdpr-ccpa/" target="_blank" rel="noopener noreferrer" className="text-[#CA848A] hover:text-[#8aa894] underline transition-colors duration-200">https://www.netlify.com/gdpr-ccpa/</a>.
                     </p>
                      <p className="text-sm sm:text-base leading-relaxed mb-3">
                         Die Nutzung von Netlify erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO). Sofern eine entsprechende Einwilligung abgefragt wurde (z. B. eine Einwilligung zur Speicherung von Cookies), erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar.
@@ -103,7 +103,7 @@ const PrivacyPolicy = () => {
                 <section aria-labelledby="rights-heading">
                     <h2 
                         id="rights-heading"
-                        className={`${playwriteDKLoopet.className} text-[#A3C1AD] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
+                        className={`${playwriteDKLoopet.className} text-[#CA848A] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
                     >
                         4. Ihre Rechte als betroffene Person
                     </h2>
@@ -139,7 +139,7 @@ const PrivacyPolicy = () => {
                 <section aria-labelledby="data-collection-heading">
                     <h2 
                         id="data-collection-heading"
-                        className={`${playwriteDKLoopet.className} text-[#A3C1AD] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
+                        className={`${playwriteDKLoopet.className} text-[#CA848A] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
                     >
                         5. Datenerfassung auf dieser Website
                     </h2>
@@ -202,7 +202,7 @@ const PrivacyPolicy = () => {
                 <section aria-labelledby="security-heading">
                      <h2 
                         id="security-heading"
-                        className={`${playwriteDKLoopet.className} text-[#A3C1AD] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
+                        className={`${playwriteDKLoopet.className} text-[#CA848A] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
                     >
                         6. SSL/TLS-Verschlüsselung
                     </h2>
@@ -215,7 +215,7 @@ const PrivacyPolicy = () => {
                 <section aria-labelledby="changes-heading">
                     <h2 
                         id="changes-heading"
-                        className={`${playwriteDKLoopet.className} text-[#A3C1AD] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
+                        className={`${playwriteDKLoopet.className} text-[#CA848A] mb-3 sm:mb-4 text-xl sm:text-[1.3rem] font-medium`}
                     >
                         7. Aktualität und Änderung dieser Datenschutzerklärung
                     </h2>

@@ -83,12 +83,12 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
                     className="w-full rounded-xl object-cover aspect-[4/3] mb-3 sm:mb-4 your-image-rendering-class" // Klasse hinzufügen
                     draggable="false"
                 />
-                <span className={`${fontClassName} text-[#A3C1AD] text-base sm:text-lg md:text-xl font-medium mt-2 block`}>{cardData.title}</span>
+                <span className={`${fontClassName} text-[#CA848A] text-base sm:text-lg md:text-xl font-medium mt-2 block`}>{cardData.title}</span>
                 <article className="text-xs sm:text-sm mt-1 sm:mt-2 text-[#151515] flex-grow min-h-[50px] sm:min-h-[60px]">
                     {cardData.description}
                 </article>
                 <div className="w-full flex justify-between items-center mt-auto pt-3 sm:pt-4 border-t border-white/10">
-                    <span className={`${fontClassName} text-[0.7rem] sm:text-xs md:text-sm text-[#A3C1AD]`}>{cardData.adventureText}</span>
+                    <span className={`${fontClassName} text-[0.7rem] sm:text-xs md:text-sm text-[#CA848A]`}>{cardData.adventureText}</span>
                     <FontAwesomeIcon className='text-base sm:text-lg text-gray-700' icon={cardData.icon} />
                 </div>
             </div>
@@ -291,7 +291,7 @@ export const CarouselCollection = (props: { title: string, data: CarouselCardDat
                         <button
                             key={`dot-${index}`}
                             onClick={() => setActiveIndex(index)} // Direct navigation with dots
-                            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${activeIndex === index ? 'bg-[#A3C1AD] scale-125' : 'bg-black/50 hover:bg-black/85'}`}
+                            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${activeIndex === index ? 'bg-[#CA848A] scale-125' : 'bg-black/50 hover:bg-black/85'}`}
                             aria-label={`Gehe zu Karte ${index + 1}`}
                         />
                     ))}

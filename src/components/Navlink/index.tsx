@@ -43,7 +43,7 @@ const NavLink = ({ children, href = "#" }: NavLinkProps) => {
                     right: '0',
                     height: '3px', // Dicke des Unterstrichs
                     // Die Hintergrundfarbe wird nun dynamisch gesetzt: rot wenn aktiv, sonst die coole Farbe
-                    backgroundColor: '#A3C1AD',
+                    backgroundColor: '#CA848A',
                     transformOrigin: 'center',
                 }}
                 variants={{

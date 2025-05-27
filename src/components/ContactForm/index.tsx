@@ -42,7 +42,7 @@ const ContactForm = () => {
 
     // Basis-Styling für Glaselemente
     const glassInputBaseStyle = "block w-full text-[#151515] bg-white/20 backdrop-blur-md border border-white/40 rounded-lg shadow-sm focus:outline-none transition-all duration-300 ease-in-out placeholder-gray-600/70";
-    const glassInputFocusStyle = "focus:border-[#A3C1AD] focus:ring-2 focus:ring-[#A3C1AD]/50";
+    const glassInputFocusStyle = "focus:border-[#CA848A] focus:ring-2 focus:ring-[#CA848A]/50";
 
     return (
         <div className="w-full flex-grow flex flex-col items-center 
@@ -51,7 +51,7 @@ const ContactForm = () => {
 
             <h1 
                 className={`text-3xl sm:text-4xl md:text-[2.8rem] lg:text-[3rem] font-semibold 
-                            ${playwriteDKLoopet.className} text-[#A3C1AD] 
+                            ${playwriteDKLoopet.className} text-[#CA848A] 
                             mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 
                             text-center`}
             >
@@ -77,7 +77,7 @@ const ContactForm = () => {
                 <div>
                     <label 
                         htmlFor="name" 
-                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#A3C1AD] mb-1 sm:mb-2`}
+                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#CA848A] mb-1 sm:mb-2`}
                     >
                         Dein Name
                     </label>
@@ -96,7 +96,7 @@ const ContactForm = () => {
                 <div>
                     <label 
                         htmlFor="email" 
-                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#A3C1AD] mb-1 sm:mb-2`}
+                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#CA848A] mb-1 sm:mb-2`}
                     >
                         Deine E-Mail-Adresse
                     </label>
@@ -115,7 +115,7 @@ const ContactForm = () => {
                 <div>
                     <label 
                         htmlFor="subject" 
-                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#A3C1AD] mb-1 sm:mb-2`}
+                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#CA848A] mb-1 sm:mb-2`}
                     >
                         Betreff
                     </label>
@@ -134,7 +134,7 @@ const ContactForm = () => {
                 <div>
                     <label 
                         htmlFor="message" 
-                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#A3C1AD] mb-1 sm:mb-2`}
+                        className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#CA848A] mb-1 sm:mb-2`}
                     >
                         Deine Nachricht
                     </label>
@@ -155,7 +155,7 @@ const ContactForm = () => {
                         type="submit"
                         disabled={isLoading}
                         className={`w-full px-6 py-3 text-base font-medium text-white 
-                                    bg-[#A3C1AD]/90 hover:bg-[#A3C1AD] focus:bg-[#A3C1AD]
+                                    bg-[#CA848A]/90 hover:bg-[#CA848A] focus:bg-[#CA848A]
                                     disabled:bg-gray-400 disabled:cursor-not-allowed
                                     backdrop-blur-md border border-transparent rounded-lg shadow-md 
                                     focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-[#8aa894] 
@@ -185,7 +185,7 @@ const ContactForm = () => {
                 )}
             </form>
              <p className="mt-10 text-center text-xs text-gray-600">
-                Alternativ erreichst du mich auch direkt per E-Mail unter <a href="mailto:nora@schlossotto.de" className="text-[#A3C1AD] hover:text-[#8aa894] underline">nora@schlossotto.de</a>.
+                Alternativ erreichst du mich auch direkt per E-Mail unter <a href="mailto:nora@schlossotto.de" className="text-[#CA848A] hover:text-[#8aa894] underline">nora@schlossotto.de</a>.
             </p>
         </div>
     );
