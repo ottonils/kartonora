@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 // faBagShopping war importiert, aber nicht genutzt. Kann bei Bedarf wieder hinzugefügt werden.
@@ -74,7 +75,7 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
             }}
         >
             <div className="w-full h-full flex flex-col p-4 sm:p-5 bg-white backdrop-blur-lg rounded-2xl shadow-xl border border-white/20">
-                <img
+                <Image
                     src={cardData.imgSrc}
                     alt={cardData.title}
                     className="w-full rounded-xl object-cover aspect-[4/3] mb-3 sm:mb-4 your-image-rendering-class" // Klasse hinzufügen
@@ -93,7 +94,7 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
     );
 };
 
-const CarouselCollection = (props: { title: string, data: CarouselCardData[] }) => {
+export const CarouselCollection = (props: { title: string, data: CarouselCardData[] }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const cards = props.data;
     const numCards = cards.length;
@@ -143,7 +144,7 @@ const CarouselCollection = (props: { title: string, data: CarouselCardData[] }) 
         updateConfig();
         window.addEventListener('resize', updateConfig);
         return () => window.removeEventListener('resize', updateConfig);
-    }, []);
+    });
 
 
     const navigate = (direction: number) => {
