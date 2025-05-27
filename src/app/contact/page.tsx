@@ -1,14 +1,16 @@
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
-const Zeischa = () => {
+const Datasecure = () => {
     return (
         <div className={`min-w-screen min-h-screen flex flex-col font-mono text-[#A3C1AD] `}>
             <Navbar />
 
 
 
-
+            {/* MAIN CONTENT SECTION */}
+            <ContactForm />
 
             {/* FOOTER SECTION */}
             <div>
@@ -20,4 +22,4 @@ const Zeischa = () => {
     )
 }
 
-export default Zeischa;
+export default Datasecure;

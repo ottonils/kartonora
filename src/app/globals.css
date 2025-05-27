@@ -20,3 +20,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.carousel-card-image { /* Geben Sie dem img-Tag diese Klasse */
+    image-rendering: -webkit-optimize-contrast; /* Für Chrome/Safari bei Bedarf */
+    image-rendering: crisp-edges; /* Oft nicht ideal für Fotos */
+    /* Es gibt auch 'pixelated', aber das ist für Pixel-Art */
+}
