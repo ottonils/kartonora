@@ -17,7 +17,7 @@ const Footer = () => {
         className="inline-block"
       >
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Dein Unternehmen. Alle Rechte vorbehalten.
+          &copy; {new Date().getFullYear()} Kartonora. Alle Rechte vorbehalten.
         </p>
       </motion.div>
     </motion.footer>

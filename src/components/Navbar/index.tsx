@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBars, faTimes } from "@fortawesome/free-solid-svg-icons"; // faBars und faTimes für Menü-Icon
 import { Playwrite_DK_Loopet } from 'next/font/google';
 import NavLink from "../Navlink"; // Sicherstellen, dass der Pfad korrekt ist
+import Link from 'next/link';
 
 const playwriteDKLoopet = Playwrite_DK_Loopet({
     weight: ['100', '200', '300', '400'],
@@ -53,12 +54,12 @@ const Navbar = () => {
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         className="flex-shrink-0" // Verhindert, dass das Logo zu stark schrumpft
                     >
-                        <a href="/" className="flex items-baseline text-gray-800 hover:text-pink-500 transition-colors duration-200">
+                        <Link href="/" className="flex items-baseline text-gray-800 hover:text-pink-500 transition-colors duration-200">
                             <h1 className={`${playwriteDKLoopet.className} text-[1.8rem] sm:text-[2rem] lg:text-[2.2rem] font-bold`}>
                                 Kartonora
                             </h1>
                             <FontAwesomeIcon className='ml-2 sm:ml-3 text-[1.5rem] sm:text-[1.7rem] lg:text-[1.9rem] text-pink-600' icon={faHeart} />
-                        </a>
+                        </Link>
                     </motion.div>
 
                     {/* Desktop Navigations-Links */}

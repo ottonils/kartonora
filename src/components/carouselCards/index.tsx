@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBriefcase, faChevronLeft, faChevronRight, faEarthEurope, faPencil } from '@fortawesome/free-solid-svg-icons';
+import {faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 // faBagShopping war importiert, aber nicht genutzt. Kann bei Bedarf wieder hinzugefügt werden.
 import { Playwrite_DK_Loopet } from 'next/font/google';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -128,7 +128,7 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
     }, []); 
 
 
-    const navigate = (direction : any) => {
+    const navigate = (direction : number) => {
         setActiveIndex(prevIndex => {
             let newIndex = prevIndex + direction;
             if (newIndex < 0) {
@@ -140,11 +140,11 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
         });
     };
     
-    const handleCardClick = (index : any) => {
+    const handleCardClick = (index : number) => {
         setActiveIndex(index);
     };
 
-    const handleCardDragEnd = (draggedX : any) => {
+    const handleCardDragEnd = (draggedX : number) => {
         const swipeThreshold = 40; 
         if (draggedX < -swipeThreshold) { 
             navigate(1); 
