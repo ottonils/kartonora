@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 // faBagShopping war importiert, aber nicht genutzt. Kann bei Bedarf wieder hinzugefügt werden.
 import { Playwrite_DK_Loopet } from 'next/font/google';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -26,7 +26,7 @@ interface CarouselConfig {
   cardWidthClass: string;
   cardBaseWidth: number;
   activeCardScale: number;
-  maxVisibleOffset: number;
+  maxVisibleOffset: number; // Max visual offset from active card in either direction
   rotateYFactor: number;
   blurFactor: number;
   xTranslateMultiplier: number;
@@ -37,13 +37,13 @@ interface CarouselCardProps {
     cardData: CarouselCardData;
     styleProps: {
         animate: {
-            x: string; // GEÄNDERT: x-Transformation als String für korrekte Zentrierung
-            y: string; // GEÄNDERT: y-Transformation als String für korrekte Zentrierung
+            x: string; 
+            y: string; 
             scale: number;
             opacity: number;
             zIndex: number;
             rotateY: number;
-            filter: string; // GEÄNDERT: Filter für Blur-Effekt
+            filter: string; 
         };
         onDragEndCard?: (draggedX: number) => void;
     };
@@ -58,8 +58,8 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
       className={`absolute cursor-pointer ${cardWidthClass} h-auto`} 
       style={{ 
         transformStyle: "preserve-3d",
-        left: '50%', // GEÄNDERT für korrekte Zentrierungsbasis
-        top: '50%',  
+        left: '50%', 
+        top: '50%',   
       }}
       initial={false} 
       animate={styleProps.animate}
@@ -87,7 +87,6 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
         </article>
         <div className="w-full flex justify-between items-center mt-auto pt-3 sm:pt-4 border-t border-white/10">
           <span className={`${fontClassName} text-[0.7rem] sm:text-xs md:text-sm text-[#A3C1AD]`}>{cardData.adventureText}</span>
-          {/* GEÄNDERT: text-md zu text-base für korrekte Tailwind-Klasse */}
           <FontAwesomeIcon className='text-base sm:text-lg text-gray-700' icon={cardData.icon} />
         </div>
       </div>
@@ -98,12 +97,13 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
 const CarouselCollection = (props : {title : string, data : CarouselCardData[]}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const cards = props.data;
+    const numCards = cards.length;
 
     const initialConfig: CarouselConfig = {
         cardWidthClass: "w-[420px]", 
         cardBaseWidth: 315,          
         activeCardScale: 1.2,
-        maxVisibleOffset: 2,
+        maxVisibleOffset: 2, // Number of cards visible on each side of the active one
         rotateYFactor: -20,
         blurFactor: 2.0,
         xTranslateMultiplier: 0.50, 
@@ -119,7 +119,7 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                     cardWidthClass: "w-[260px]",
                     cardBaseWidth: 195, 
                     activeCardScale: 1.1,
-                    maxVisibleOffset: 1,
+                    maxVisibleOffset: 1, // Fewer cards on smaller screens
                     rotateYFactor: -15,
                     blurFactor: 1.5,
                     xTranslateMultiplier: 0.55, 
@@ -151,15 +151,26 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
         setActiveIndex(prevIndex => {
             let newIndex = prevIndex + direction;
             if (newIndex < 0) {
-                newIndex = cards.length - 1;
-            } else if (newIndex >= cards.length) {
-                newIndex = 0;
+                newIndex = numCards - 1; // Loop to last
+            } else if (newIndex >= numCards) {
+                newIndex = 0; // Loop to first
             }
             return newIndex;
         });
     };
     
     const handleCardClick = (index : number) => {
+        // Calculate difference to determine navigation direction for Rondell
+        let diff = index - activeIndex;
+        // Normalize diff for shortest path in Rondell
+        if (Math.abs(diff) > numCards / 2) {
+            diff = diff > 0 ? diff - numCards : diff + numCards;
+        }
+        
+        // If clicked card is not the active one, navigate
+        // This logic is simplified if clicking directly sets it active
+        // For a rondell, if you click a card that is visually e.g. 2 steps away,
+        // you want it to become the active card.
         setActiveIndex(index);
     };
 
@@ -183,7 +194,22 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                 style={{ perspective: '1200px' }} 
             >
                 {cards.map((card, index) => {
-                    const offset = index - activeIndex; 
+                    // --- START RONDELL OFFSET CALCULATION ---
+                    let offsetRaw = index - activeIndex;
+                    let offset = offsetRaw;
+
+                    // Adjust offset for circularity (Rondell effect)
+                    // If a card is more than halfway around the carousel,
+                    // treat it as being on the other side for visual positioning.
+                    if (numCards > 0) { // Avoid division by zero if cards array is empty
+                        const half = numCards / 2;
+                        if (offsetRaw > half) {
+                            offset = offsetRaw - numCards;
+                        } else if (offsetRaw < -half) {
+                            offset = offsetRaw + numCards;
+                        }
+                    }
+                    // --- END RONDELL OFFSET CALCULATION ---
                     
                     let xTranslate = 0;
                     let scale = 0.5;
@@ -192,27 +218,31 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                     let rotateY = 0;
                     let blur = 10; 
 
-                    if (Math.abs(offset) <= config.maxVisibleOffset) {
-                        const distanceFactor = Math.abs(offset);
+                    const absOffset = Math.abs(offset);
+
+                    if (absOffset <= config.maxVisibleOffset) {
+                        const distanceFactor = absOffset;
                         opacity = Math.max(0, 1 - (distanceFactor * 0.4)); 
                         scale = Math.max(0, 1 - (distanceFactor * 0.25)); 
-                        zIndex = cards.length - distanceFactor;
+                        zIndex = numCards - distanceFactor; // Higher zIndex for closer cards
                         const perspectivePush = (offset !== 0 ? (offset > 0 ? 25 : -25) * distanceFactor : 0) * (config.cardBaseWidth / 300) ; 
                         xTranslate = (offset * config.cardBaseWidth * config.xTranslateMultiplier) - perspectivePush;
                         rotateY = offset * config.rotateYFactor; 
                         blur = distanceFactor * config.blurFactor;
                     } else { 
-                        opacity = 0;
+                        // Cards beyond maxVisibleOffset (should be few in a Rondell if maxVisibleOffset is large enough)
+                        opacity = 0; // Effectively hide them
                         scale = 0.3; 
                         xTranslate = offset * (config.cardBaseWidth * 0.7); 
                         rotateY = offset * config.rotateYFactor;
                         blur = 10;
+                        zIndex = 0; // Send them to the back
                     }
                     
-                    if (offset === 0) {
+                    if (offset === 0) { // Active card
                         scale = config.activeCardScale;
                         opacity = 1;
-                        zIndex = cards.length + 1;
+                        zIndex = numCards + 1; // Highest zIndex for active card
                         rotateY = 0; 
                         xTranslate = 0; 
                         blur = 0;
@@ -220,7 +250,6 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                     
                     const cardStyleProps = {
                         animate: {
-                            // GEÄNDERT: x-Transformation für korrekte Zentrierung
                             x: `calc(-50% + ${xTranslate}px)`, 
                             y: "-50%", 
                             scale: scale,
@@ -229,7 +258,7 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                             rotateY: rotateY,
                             filter: `blur(${blur}px)`,
                         },
-                        onDragEndCard: handleCardDragEnd, 
+                        onDragEndCard: offset === 0 ? handleCardDragEnd : undefined, // Only allow dragging active card
                     };
 
                     return (
@@ -238,17 +267,13 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                             cardData={card}
                             styleProps={cardStyleProps}
                             fontClassName={playwriteDKLoopet.className}
-                            onCardClick={() => handleCardClick(index)}
+                            onCardClick={() => handleCardClick(index)} // Click any card to make it active
                             cardWidthClass={config.cardWidthClass}
                         />
                     );
                 })}
             </div>
 
-            {/* Navigationsbuttons und Dots */}
-            {/* Dieser Bereich sollte bereits durch items-center im Parent zentriert sein. */}
-            {/* Wenn die Punkte immer noch verschoben wirken, nachdem die Karten zentriert sind, */}
-            {/* könnte es an der Breite der Buttons liegen oder ein optischer Effekt sein. */}
             <div className="flex items-center space-x-4 sm:space-x-6 mt-10 md:mt-16">
                 <button 
                     onClick={() => navigate(-1)} 
@@ -261,7 +286,7 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                     {cards.map((_, index) => (
                         <button
                             key={`dot-${index}`}
-                            onClick={() => setActiveIndex(index)}
+                            onClick={() => setActiveIndex(index)} // Direct navigation with dots
                             className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${activeIndex === index ?  'bg-[#A3C1AD] scale-125' : 'bg-black/50 hover:bg-black/85'}`}
                             aria-label={`Gehe zu Karte ${index + 1}`}
                         />
