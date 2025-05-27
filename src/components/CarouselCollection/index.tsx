@@ -113,6 +113,18 @@ export const CarouselCollection = (props: { title: string, data: CarouselCardDat
     };
     const [config, setConfig] = useState<CarouselConfig>(initialConfig);
 
+    const navigate = (direction: number) => {
+        setActiveIndex(prevIndex => {
+            let newIndex = prevIndex + direction;
+            if (newIndex < 0) {
+                newIndex = numCards - 1; // Loop to last
+            } else if (newIndex >= numCards) {
+                newIndex = 0; // Loop to first
+            }
+            return newIndex;
+        });
+    };
+
     useEffect(() => {
         const updateConfig = () => {
             const screenWidth = window.innerWidth;
@@ -146,20 +158,10 @@ export const CarouselCollection = (props: { title: string, data: CarouselCardDat
         updateConfig();
         window.addEventListener('resize', updateConfig);
         return () => window.removeEventListener('resize', updateConfig);
-    }, []);
+    }, [navigate]);
 
 
-    const navigate = (direction: number) => {
-        setActiveIndex(prevIndex => {
-            let newIndex = prevIndex + direction;
-            if (newIndex < 0) {
-                newIndex = numCards - 1; // Loop to last
-            } else if (newIndex >= numCards) {
-                newIndex = 0; // Loop to first
-            }
-            return newIndex;
-        });
-    };
+    
 
     const handleCardClick = (index: number) => {
         // Calculate difference to determine navigation direction for Rondell

@@ -3,14 +3,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'; // AnimatePresence für Ein-/Ausblenden
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faBars, faTimes } from "@fortawesome/free-solid-svg-icons"; // faBars und faTimes für Menü-Icon
-import { Playwrite_DK_Loopet } from 'next/font/google';
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"; // faBars und faTimes für Menü-Icon
 import NavLink from "../Navlink"; // Sicherstellen, dass der Pfad korrekt ist
+import Image from 'next/image'; // Für das Logo-Bild
 import Link from 'next/link';
-
-const playwriteDKLoopet = Playwrite_DK_Loopet({
-    weight: ['100', '200', '300', '400'],
-});
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +18,7 @@ const Navbar = () => {
     // Navigationspunkte für einfachere Verwaltung
     const navItems = [
         { href: "/", label: "Start" }, // Beispiel-href, anpassen
-        { href: "/zeischa", label: "Zeischa" },
+        { href: "/zeischa", label: "Dorfliebe-Zeischa" },
         { href: "/about-me", label: "Über mich" },
     ];
 
@@ -55,7 +51,7 @@ const Navbar = () => {
                         className="flex-shrink-0" // Verhindert, dass das Logo zu stark schrumpft
                     >
                         <Link href="/" className="flex items-center text-gray-800 hover:text-pink-500 transition-colors duration-200">
-                            <img src={"/logo.webp"} alt="Logo" className="h-18 w-auto mr-2" /> {/* Logo-Bild */}
+                            <Image width={300} height={300} src={"/logo.webp"} alt="Logo" className="h-18 w-auto mr-2" /> {/* Logo-Bild */}
                         </Link>
                     </motion.div>
 
