@@ -1,4 +1,4 @@
-import CarouselCollection from '@/components/CarouselCards';
+import CarouselCollection from '../components/CarouselCards';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { faPencil, faBriefcase, faBook, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
