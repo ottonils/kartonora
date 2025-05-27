@@ -55,7 +55,7 @@ const ContactForm = () => {
                             mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 
                             text-center`}
             >
-                Kontaktieren Sie uns
+                Kontaktiere mich
             </h1>
             
             <form
@@ -79,7 +79,7 @@ const ContactForm = () => {
                         htmlFor="name" 
                         className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#A3C1AD] mb-1 sm:mb-2`}
                     >
-                        Ihr Name
+                        Dein Name
                     </label>
                     <input 
                         type="text" 
@@ -98,7 +98,7 @@ const ContactForm = () => {
                         htmlFor="email" 
                         className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#A3C1AD] mb-1 sm:mb-2`}
                     >
-                        Ihre E-Mail-Adresse
+                        Deine E-Mail-Adresse
                     </label>
                     <input 
                         type="email" 
@@ -136,7 +136,7 @@ const ContactForm = () => {
                         htmlFor="message" 
                         className={`block text-sm sm:text-base font-medium ${playwriteDKLoopet.className} text-[#A3C1AD] mb-1 sm:mb-2`}
                     >
-                        Ihre Nachricht
+                        Deine Nachricht
                     </label>
                     <textarea 
                         name="message" 
@@ -185,7 +185,7 @@ const ContactForm = () => {
                 )}
             </form>
              <p className="mt-10 text-center text-xs text-gray-600">
-                Alternativ erreichen Sie uns auch direkt per E-Mail unter <a href="mailto:nora@schlossotto.de" className="text-[#A3C1AD] hover:text-[#8aa894] underline">nora@schlossotto.de</a>.
+                Alternativ erreichst du mich auch direkt per E-Mail unter <a href="mailto:nora@schlossotto.de" className="text-[#A3C1AD] hover:text-[#8aa894] underline">nora@schlossotto.de</a>.
             </p>
         </div>
     );

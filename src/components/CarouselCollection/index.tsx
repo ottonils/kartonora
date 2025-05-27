@@ -158,7 +158,7 @@ export const CarouselCollection = (props: { title: string, data: CarouselCardDat
         updateConfig();
         window.addEventListener('resize', updateConfig);
         return () => window.removeEventListener('resize', updateConfig);
-    }, [navigate]);
+    }, []);
 
 
     

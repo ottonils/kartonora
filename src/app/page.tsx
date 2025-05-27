@@ -1,8 +1,10 @@
-import CarouselCollection  from '@/components/CarouselCollection';
+// src/app/page.tsx
+import RandomDotsBackground from '@/components/BackgroundDots';
+import CarouselCollection from '@/components/CarouselCollection';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import { faPencil, faBriefcase, faBook, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
 
+import { faPencil, faBriefcase, faBook, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
 
 const schoolCardData = [
   { id: 1, imgSrc: "/box.webp", title: "Für den ersten Start...", description: "Alles, was du für den Schulbeginn brauchst, kompakt und bereit.", adventureText: "Dein Lernabenteuer beginnt!", icon: faPencil },
@@ -22,33 +24,37 @@ const dorfLoveCardData = [
 
 const Home = () => {
   return (
-    <div className={`min-w-screen min-h-screen flex flex-col font-mono text-[#A3C1AD] `}>
+    <div 
+      className={`min-w-full w-full min-h-screen flex flex-col font-mono text-[#A3C1AD]`}
+      // Das 'relative' hier ist nicht mehr zwingend für den Dot-Background, da dieser nun im <main> lebt.
+      // Es schadet aber nicht, falls andere absolute Elemente sich auf diesen Div beziehen sollen.
+    >
+      <Navbar />
 
-      {/* <Navbar /> */}
-      <Navbar /> {/* Navbar-Komponente, die oben auf der Seite angezeigt wird */}
-
-      {/* MAIN CONTENT AREA */}
-      <main className="flex flex-col justify-center items-center" > {/* Oder ein div, das den Content umgibt */}
-        {/* FIRST SECTION */}
-        <section className="w-[80%]"> 
-          <CarouselCollection title='Schulkollektion' data={schoolCardData}  />
+      {/* Das <main>-Element wird zum relativen Container für den Punkthintergrund */}
+      <main className="relative flex flex-col justify-center items-center flex-grow z-0">
+        <RandomDotsBackground 
+          dotColor="rgba(255, 0, 0, 0.8)" 
+          dotRadius={4} 
+          density={0.1} 
+        />
+        
+        {/* Der Inhalt des <main>-Elements. Liegt standardmäßig über dem -z-10 Hintergrund. */}
+        <section className="w-[80%] h-full mt-8 sm:mt-12"> 
+          <CarouselCollection title='Schulkollektion' data={schoolCardData} />
         </section>
 
-        {/** Trennlinie */}
-        <div className="min-w-screen bg-white flex justify-center items-center border-t-2 border-dashed mt-[5%]">
-
-        <section className="w-[80%] mb-[5%]">
-          <CarouselCollection title='Dorfliebe' data={dorfLoveCardData}  />
-        </section>
-
+        
+        <div className="w-full h-full flex justify-center items-center mt-[5%] py-[2%]  border-t-2 border-b-2 border-dashed border-[#A3C1AD] ">
+          <section className="w-[80%]">
+            <CarouselCollection title='Dorfliebe' data={dorfLoveCardData} />
+          </section>
         </div>
       </main>
 
-      {/* FOOTER SECTION */}
-      <div>
-      <Footer/> 
-      </div>
-
+      <footer className="z-0">
+        <Footer/> 
+      </footer>
     </div>
   );
 }
