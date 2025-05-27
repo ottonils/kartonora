@@ -6,19 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faBriefcase, faChevronLeft, faChevronRight, faEarthEurope, faPencil } from '@fortawesome/free-solid-svg-icons';
 // faBagShopping war importiert, aber nicht genutzt. Kann bei Bedarf wieder hinzugefügt werden.
 import { Playwrite_DK_Loopet } from 'next/font/google';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+interface CarouselCardData {
+  id: number;
+  imgSrc: string;
+  title: string;
+  description: string;
+  adventureText: string;
+  icon: IconDefinition;
+}
 
 const playwriteDKLoopet = Playwrite_DK_Loopet({
     weight: ['100', '200', '300', '400'],
     // subsets: ['latin'], // Kann für Optimierung hinzugefügt werden
 });
-
-const carouselCardData = [
-  { id: 1, imgSrc: "/box.png", title: "Für den ersten Start...", description: "Alles, was du für den Schulbeginn brauchst, kompakt und bereit.", adventureText: "Dein Lernabenteuer beginnt!", icon: faPencil },
-  { id: 2, imgSrc: "/mappe.png", title: "Wissen festhalten...", description: "Die perfekte Mappe, um deine Notizen und Zeichnungen sicher aufzubewahren.", adventureText: "Sammle deine Gedanken!", icon: faBriefcase },
-  { id: 3, imgSrc: "/box.png", title: "Tauche ein in Geschichten", description: "Spannende Bücher, die deine Fantasie anregen und neue Welten eröffnen.", adventureText: "Entdecke das Lesen!", icon: faBook },
-  { id: 4, imgSrc: "/box.png", title: "Kreativität entfesseln", description: "Ein Set bunter Stifte, um deine Ideen farbenfroh aufs Papier zu bringen.", adventureText: "Male deine Träume!", icon: faPencil },
-  { id: 5, imgSrc: "/box.png", title: "Die Welt erkunden", description: "Lerne spielerisch Kontinente und Länder mit diesem interaktiven Globus kennen.", adventureText: "Dein Horizont wartet!", icon: faEarthEurope },
-];
 
 interface CarouselConfig {
   cardWidthClass: string;
@@ -74,9 +76,9 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
   );
 };
 
-const CarouselCollection = () => {
+const CarouselCollection = (props : {title : string, data : CarouselCardData[]}) => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const cards = carouselCardData;
+    const cards = props.data;
 
     const initialConfig: CarouselConfig = {
         cardWidthClass: "w-[420px]", 
@@ -154,7 +156,7 @@ const CarouselCollection = () => {
     return (
         <div className="w-full h-auto flex flex-col items-center p-4 sm:p-6 md:p-8 pt-12 md:pt-20 text-white overflow-x-hidden">
             <h2 className='w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 sm:mb-10 md:mb-16 text-center tracking-wide text-[#151515] pb-6 sm:pb-8 md:pb-10'>
-                Schulkollektion
+                {props.title}
             </h2>
 
             <div 
