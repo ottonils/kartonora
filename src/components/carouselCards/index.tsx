@@ -74,7 +74,7 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
         }
       }}
     >
-      <div className="w-full h-full flex flex-col p-4 sm:p-5 bg-white/30 backdrop-blur-lg rounded-2xl shadow-xl border border-white/20">
+      <div className="w-full h-full flex flex-col p-4 sm:p-5 bg-white backdrop-blur-lg rounded-2xl shadow-xl border border-white/20">
         <img 
           src={cardData.imgSrc} 
           alt={cardData.title} 
