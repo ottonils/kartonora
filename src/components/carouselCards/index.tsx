@@ -74,7 +74,7 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
   );
 };
 
-const CollectionDrehrad = () => {
+const CarouselCollection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const cards = carouselCardData;
 
@@ -152,8 +152,8 @@ const CollectionDrehrad = () => {
     };
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center p-4 sm:p-6 md:p-8 pt-12 md:pt-20 text-white overflow-x-hidden">
-            <h2 className='w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 sm:mb-10 md:mb-16 text-center tracking-wide text-[#151515] border-b-2 border-[#A3C1AD] border-dashed pb-6 sm:pb-8 md:pb-10'>
+        <div className="w-full h-auto flex flex-col items-center p-4 sm:p-6 md:p-8 pt-12 md:pt-20 text-white overflow-x-hidden">
+            <h2 className='w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 sm:mb-10 md:mb-16 text-center tracking-wide text-[#151515] pb-6 sm:pb-8 md:pb-10'>
                 Schulkollektion
             </h2>
 
@@ -258,4 +258,4 @@ const CollectionDrehrad = () => {
     );
 };
 
-export default CollectionDrehrad;
+export default CarouselCollection;

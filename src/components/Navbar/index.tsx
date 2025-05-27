@@ -21,8 +21,8 @@ const Navbar = () => {
     // Navigationspunkte für einfachere Verwaltung
     const navItems = [
         { href: "/", label: "Start" }, // Beispiel-href, anpassen
-        { href: "/", label: "Zeischa" },
-        { href: "/", label: "Über mich" },
+        { href: "/zeischa", label: "Zeischa" },
+        { href: "/about-me", label: "Über mich" },
     ];
 
     // Framer Motion Varianten für das mobile Menü

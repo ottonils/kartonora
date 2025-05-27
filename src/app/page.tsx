@@ -1,13 +1,15 @@
-import CollectionDrehrad from '@/components/carouselSchool';
+import CarouselCollection from '@/components/carouselCards';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import { Playwrite_DK_Loopet } from 'next/font/google';
+import { faPencil, faBriefcase, faBook, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
 
-
-//Kartonora Font
-const playwriteDKLoopet = Playwrite_DK_Loopet({ 
-  weight: ['100', '200', '300', '400'], // Wähle die Gewichte, die du tatsächlich brauchst
-});
+const carouselCardData = [
+  { id: 1, imgSrc: "/box.png", title: "Für den ersten Start...", description: "Alles, was du für den Schulbeginn brauchst, kompakt und bereit.", adventureText: "Dein Lernabenteuer beginnt!", icon: faPencil },
+  { id: 2, imgSrc: "/mappe.png", title: "Wissen festhalten...", description: "Die perfekte Mappe, um deine Notizen und Zeichnungen sicher aufzubewahren.", adventureText: "Sammle deine Gedanken!", icon: faBriefcase },
+  { id: 3, imgSrc: "/box.png", title: "Tauche ein in Geschichten", description: "Spannende Bücher, die deine Fantasie anregen und neue Welten eröffnen.", adventureText: "Entdecke das Lesen!", icon: faBook },
+  { id: 4, imgSrc: "/box.png", title: "Kreativität entfesseln", description: "Ein Set bunter Stifte, um deine Ideen farbenfroh aufs Papier zu bringen.", adventureText: "Male deine Träume!", icon: faPencil },
+  { id: 5, imgSrc: "/box.png", title: "Die Welt erkunden", description: "Lerne spielerisch Kontinente und Länder mit diesem interaktiven Globus kennen.", adventureText: "Dein Horizont wartet!", icon: faEarthEurope },
+];
 
 const Home = () => {
   return (
@@ -16,11 +18,20 @@ const Home = () => {
       <Navbar />
 
       {/* MAIN CONTENT AREA */}
-      <main className="flex justify-center items-center" > {/* Oder ein div, das den Content umgibt */}
+      <main className="flex flex-col justify-center items-center" > {/* Oder ein div, das den Content umgibt */}
         {/* FIRST SECTION */}
-        <section className="w-[60%] flex"> 
-          <CollectionDrehrad />
+        <section className="w-[80%]"> 
+          <CarouselCollection />
         </section>
+
+        {/** Trennlinie */}
+        <div className="min-w-screen bg-white flex justify-center items-center border-t-2 border-dashed mt-[5%]">
+
+        <section className="w-[80%] mb-[5%]">
+          <CarouselCollection />
+        </section>
+
+        </div>
       </main>
 
       {/* FOOTER SECTION */}
