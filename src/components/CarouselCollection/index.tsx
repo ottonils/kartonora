@@ -76,6 +76,8 @@ const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWi
         >
             <div className="w-full h-full flex flex-col p-4 sm:p-5 bg-white backdrop-blur-lg rounded-2xl shadow-xl border border-white/20">
                 <Image
+                    width={420}
+                    height={370}
                     src={cardData.imgSrc}
                     alt={cardData.title}
                     className="w-full rounded-xl object-cover aspect-[4/3] mb-3 sm:mb-4 your-image-rendering-class" // Klasse hinzufügen
@@ -144,7 +146,7 @@ export const CarouselCollection = (props: { title: string, data: CarouselCardDat
         updateConfig();
         window.addEventListener('resize', updateConfig);
         return () => window.removeEventListener('resize', updateConfig);
-    });
+    }, []);
 
 
     const navigate = (direction: number) => {

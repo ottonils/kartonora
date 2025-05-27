@@ -54,11 +54,8 @@ const Navbar = () => {
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         className="flex-shrink-0" // Verhindert, dass das Logo zu stark schrumpft
                     >
-                        <Link href="/" className="flex items-baseline text-gray-800 hover:text-pink-500 transition-colors duration-200">
-                            <h1 className={`${playwriteDKLoopet.className} text-[1.8rem] sm:text-[2rem] lg:text-[2.2rem] font-bold`}>
-                                Kartonora
-                            </h1>
-                            <FontAwesomeIcon className='ml-2 sm:ml-3 text-[1.5rem] sm:text-[1.7rem] lg:text-[1.9rem] text-pink-600' icon={faHeart} />
+                        <Link href="/" className="flex items-center text-gray-800 hover:text-pink-500 transition-colors duration-200">
+                            <img src={"/logo.webp"} alt="Logo" className="h-18 w-auto mr-2" /> {/* Logo-Bild */}
                         </Link>
                     </motion.div>
 
@@ -74,7 +71,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Mobile Menu Button (Hamburger Icon) */}
-                    <div className="md:hidden flex items-center">
+                    <div className="md:hidden sm:block flex items-center">
                         <button
                             onClick={toggleMenu}
                             type="button"
