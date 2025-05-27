@@ -11,7 +11,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 interface CarouselCardData {
     id: number;
     imgSrc: string;
-    title: string;
+    title: string; 
     description: string;
     adventureText: string;
     icon: IconDefinition;
