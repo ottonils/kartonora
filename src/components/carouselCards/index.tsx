@@ -194,7 +194,7 @@ const CarouselCollection = (props: { title: string, data: CarouselCardData[] }) 
             >
                 {cards.map((card, index) => {
                     // --- START RONDELL OFFSET CALCULATION ---
-                    let offsetRaw = index - activeIndex;
+                    const offsetRaw = index - activeIndex;
                     let offset = offsetRaw;
 
                     // Adjust offset for circularity (Rondell effect)

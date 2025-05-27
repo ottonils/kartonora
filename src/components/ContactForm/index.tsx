@@ -35,37 +35,9 @@ const ContactForm = () => {
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+        setStatus('Nachricht sollte jetzt gesendet werden //TODO...');
         setIsLoading(true);
-        setStatus('Nachricht wird gesendet...');
-
-        const formData = new FormData(e.currentTarget);
-        // FormData muss für Netlify URL-encoded werden, wenn per AJAX gesendet wird
-        const body = new URLSearchParams(formData as any).toString();
-
-
-        try {
-            const response = await fetch("/", { // Netlify verarbeitet Formulare an der aktuellen URL
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: body,
-            });
-
-            if (response.ok) {
-                setStatus('Nachricht erfolgreich gesendet! Vielen Dank.');
-                setFormValues({ name: '', email: '', subject: '', message: '' });
-                // e.currentTarget.reset(); // HTML Form resetten
-            } else {
-                const errorText = await response.text();
-                console.error("Form submission error response:", errorText);
-                setStatus(`Fehler beim Senden der Nachricht. (${response.status}) Bitte versuchen Sie es später erneut.`);
-            }
-        } catch (error) {
-            console.error("Network or other error:", error);
-            setStatus('Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
-        } finally {
-            setIsLoading(false);
-        }
+        console.log(e);
     };
 
     // Basis-Styling für Glaselemente

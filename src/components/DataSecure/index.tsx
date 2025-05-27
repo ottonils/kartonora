@@ -86,7 +86,7 @@ const PrivacyPolicy = () => {
                     </h2>
                     <h3 className="text-lg font-semibold text-[#151515] mt-4 mb-2">Externes Hosting mit Netlify</h3>
                     <p className="text-sm sm:text-base leading-relaxed mb-3">
-                        Diese Website wird bei Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, California 94104, USA (nachfolgend "Netlify") gehostet.
+                        Diese Website wird bei Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, California 94104, USA (nachfolgend &quot;Netlify&quot;) gehostet.
                         Netlify ist ein Dienst zur Bereitstellung, Verteilung und Verwaltung von Webseiten und Webanwendungen.
                     </p>
                     <p className="text-sm sm:text-base leading-relaxed mb-3">
@@ -163,7 +163,7 @@ const PrivacyPolicy = () => {
 
                     <h3 className="text-lg font-semibold text-[#151515] mt-6 mb-2">Server-Log-Dateien (durch Netlify)</h3>
                     <p className="text-sm sm:text-base leading-relaxed mb-3">
-                        Der Provider der Seiten (Netlify, siehe Abschnitt "Hosting") erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns bzw. Netlify übermittelt. Dies sind:
+                        Der Provider der Seiten (Netlify, siehe Abschnitt &quot;Hosting&quot;) erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns bzw. Netlify übermittelt. Dies sind:
                     </p>
                     <ul className="list-disc list-inside space-y-1 text-sm sm:text-base leading-relaxed mb-3">
                         <li>Browsertyp und Browserversion</li>
