@@ -33,6 +33,17 @@ interface CarouselConfig {
   stageHeightClass: string;
 }
 
+interface CarouselCardProps {
+    cardData: CarouselCardData;
+    styleProps: {
+        animate: any;
+        onDragEndCard?: (draggedX: number) => void;
+    };
+    fontClassName: string;
+    onCardClick: () => void;
+    cardWidthClass: string;
+}
+
 const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWidthClass } : any) => {
   return (
     <motion.div
