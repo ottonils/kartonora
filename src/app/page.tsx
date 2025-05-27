@@ -24,7 +24,7 @@ const Home = () => {
         <div className="w-[65%] flex justify-evenly items-center">
           <span className="hover:border-b-[0.1rem] hover:cursor-pointer transition-all duration-150">
             Dorfliebe
-          </span>
+          </span> 
           <span className="hover:border-b-[0.1rem] hover:cursor-pointer transition-all duration-150">
             Zeischa
           </span>
