@@ -262,7 +262,7 @@ const CarouselCollection = (props : {title : string, data : CarouselCardData[]})
                         <button
                             key={`dot-${index}`}
                             onClick={() => setActiveIndex(index)}
-                            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${activeIndex === index ? 'bg-[#A3C1AD] scale-125' : 'bg-black/50 hover:bg-black/85'}`}
+                            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${activeIndex === index ?  'bg-[#A3C1AD] scale-125' : 'bg-black/50 hover:bg-black/85'}`}
                             aria-label={`Gehe zu Karte ${index + 1}`}
                         />
                     ))}

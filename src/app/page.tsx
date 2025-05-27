@@ -30,14 +30,14 @@ const Home = () => {
       <main className="flex flex-col justify-center items-center" > {/* Oder ein div, das den Content umgibt */}
         {/* FIRST SECTION */}
         <section className="w-[80%]"> 
-          <CarouselCollection title='Schulkollektion' data={schoolCardData} />
+          <CarouselCollection title='Schulkollektion' data={schoolCardData}  />
         </section>
 
         {/** Trennlinie */}
         <div className="min-w-screen bg-white flex justify-center items-center border-t-2 border-dashed mt-[5%]">
 
         <section className="w-[80%] mb-[5%]">
-          <CarouselCollection title='Dorfliebe' data={dorfLoveCardData} />
+          <CarouselCollection title='Dorfliebe' data={dorfLoveCardData}  />
         </section>
 
         </div>
