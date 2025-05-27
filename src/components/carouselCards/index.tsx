@@ -44,7 +44,7 @@ interface CarouselCardProps {
     cardWidthClass: string;
 }
 
-const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWidthClass } : any) => {
+const CarouselCard = ({ cardData, styleProps, fontClassName, onCardClick, cardWidthClass } : CarouselCardProps) => {
   return (
     <motion.div
       className={`absolute cursor-pointer ${cardWidthClass} h-auto`} 
